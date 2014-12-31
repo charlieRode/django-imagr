@@ -1,0 +1,11 @@
+<h1>Create New Album</h1>
+
+<form method="post", action="">
+    {% csrf_token %}
+    {{ album_form }}
+    <br><br>
+    <input type="submit" value="Create Album">
+</form>
+
+<br>
+<a href="{% url 'imagr_app:front_page' %}">Back to HomePage</a>

@@ -1,0 +1,9 @@
+{% if photo %}
+    <h2>{{ photo.title }}<a href="{% url 'imagr_app:edit_photo' photo.id %}"> Edit</a></h2>
+    <img class="photo" src="{{ photo.url }}" width="450" height="300">
+    <p>{{ photo.description }}</p>
+{% else %}
+    <p>Could not find the specified photo</p>
+{% endif %}
+<br><br>
+<a href="{% url 'imagr_app:front_page' %}">Home</a>

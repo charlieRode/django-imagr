@@ -1,0 +1,11 @@
+{% if photos %}
+    <ul>
+    {% for photo in photos %}
+        <img class="photo" src="{{ photo.url }}" width="150" height="100">
+        <li><a href="{% url 'imagr_app:photo_page' photo.id %}">{{ photo.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No photos in this album</p>
+{% endif %}
+<a href="{% url 'imagr_app:front_page' %}">Home</a>

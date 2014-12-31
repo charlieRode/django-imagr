@@ -1,0 +1,29 @@
+<h3>{{ user.username }} is following: </h3>
+    <ul>
+    {% if following %}
+        {% for u in following %}
+            {{ u.username }}<br>
+        {% endfor %}
+    {% else %}
+        <p>You aren't following anyone yet!</p>
+    {% endif %}
+    </ul>
+<h3>{{ user.username }}'s followers: </h3>
+    <ul>
+    {% if followers %}
+        {% for u in followers %}
+            {{ u }}<br>
+        {% endfor %}
+    {% else %}
+        <p>You have no followers, Loser!</p>
+    {% endif %}
+    </ul>
+<h3>Edit who you are following:</h3>
+<form method="post", action="">
+    {% csrf_token %}
+    {{ follow_form }}
+    <br><br>
+    <input type="submit" value="Update Follows!">
+</form>
+<br><br>
+<a href="{% url 'imagr_app:front_page' %}">Home</a>

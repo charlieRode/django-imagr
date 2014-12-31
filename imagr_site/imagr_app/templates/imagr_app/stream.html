@@ -1,0 +1,22 @@
+{% if user_photos %}
+    <h3>Your recent photos</h3>
+    <ul>
+    {% for photo in user_photos %}
+        <br>
+        <a href="{% url 'imagr_app:photo_page' photo.id %}">{{ photo.title }}</a><br>
+        <img class="photo" src="{{ photo.url }}" width="150" height="100">
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You don't have any recent photos</p>
+{% endif %}
+{% if friends_photos %}
+    <h3>Recent photos by friends</h3>
+    <ul>
+    {% for photo in friends_photos %}
+        <a href="{% url 'imagr_app:photo_page' photo.id %}">{{ photo.title }}</a>
+        <br>
+    <br><br>
+    {% endfor %}
+{% endif %}
+<a href="{% url 'imagr_app:front_page' %}">Home</a>

@@ -1,0 +1,17 @@
+<h3>{{ user.username }} is following: </h3>
+    <ul>
+    {% for u in following %}
+        {{ u.username }}<br>
+    {% endfor %}
+    </ul>
+<h3>{{ user.username }}'s followers: </h3>
+    <ul>
+    {% for u in following %}
+        {{ u }}<br>
+    {% endfor %}
+<form method="post", action="">
+    {% csrf_token %}
+    {{ follow_form }}
+    <br><br>
+    <input type="submit" value="Update Follows!">
+</form>

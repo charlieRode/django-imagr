@@ -1,0 +1,13 @@
+<h1>Edit Album</h1>
+{% if album_form %}
+<form method="post", action="">
+    {% csrf_token %}
+    {{ album_form }}
+    <br><br>
+    <input type="submit" value="Edit Album">
+</form>
+{% else %}
+    <p>No form, son</p>
+{% endif %}
+<br>
+<a href="{% url 'imagr_app:front_page' %}">Back to HomePage</a>
